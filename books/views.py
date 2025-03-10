@@ -1,6 +1,30 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from datetime import datetime
+from . import models
+
+
+def books_detail(request, id):
+    if request.method == 'GET':
+        book_id = get_object_or_404(models.Books, id=id)
+        return render(
+            request,
+            template_name='book_detail.html',
+            context={
+                'book_id': book_id,
+            }
+        )
+
+def books_list(request):
+    if request.method == "GET":
+        query = models.Books.objects.all()
+        return render (
+            request,
+            template_name="book.html",
+            context = {
+                "query": query,
+            }
+        )
 
 def text(request):
     if request.method == "GET":
