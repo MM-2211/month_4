@@ -42,3 +42,9 @@
     background: #f44336;
     color: white;
 }
+
+.confirm-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
