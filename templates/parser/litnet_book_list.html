@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Книги с LITNET</h1>
+<ol>
+    {% for i in litnet %}
+    <li>
+        <p>{{ i.title }}</p>
+    </li>
+    {% endfor %}
+</ol>
+</body>
+</html>

@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'books',
     'hashtags',
-    'basket'
+    'basket',
+    'parser_app'
 ]
 
 MIDDLEWARE = [
