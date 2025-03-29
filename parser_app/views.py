@@ -21,6 +21,7 @@ class RezkaFilmListView(generic.ListView):
 
 class ParserForm(generic.FormView):
     template_name = 'parser/parser_form.html'
+
     form_class = forms.ParserForm
 
     def post(self, request, *args, **kwargs):
