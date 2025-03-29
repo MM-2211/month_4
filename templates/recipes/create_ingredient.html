@@ -6,7 +6,7 @@
     <title>Добавить ингредиент</title>
 </head>
 <body>
-    <h1>Добавить ингредиент к рецепту: {{ i.title }}</h1>
+    <h1>Добавить ингредиент к рецепту: {{ recipe.title }}</h1>
 
     <form method="post">
         {% csrf_token %}

@@ -3,27 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ i.title }}</title>
+    <title>{{ recipe.title }}</title>
 </head>
 <body>
-    <h1>{{ i.title }}</h1>
-    <p>{{ i.description }}</p>
+    <h1>{{ recipe.title }}</h1>
+    <p>{{ recipe.description }}</p>
 
     <h2>Ингредиенты</h2>
     <ul>
-        {% for ing in recipe.ingredient_set.all %}
-            <li>{{ ing.name }} - {{ ing.quantity }}</li>
+        {% for ingredient in recipe.ingredient_set.all %}
+            <li>{{ ingredient.name }} - {{ ingredient.quantity }}</li>
         {% endfor %}
     </ul>
 
     <h2>Добавить ингредиент</h2>
-    <form method="post">
+    <form method="post" action="{% url 'create_ingredient' recipe.id %}">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Добавить ингредиент</button>
+        <button type="submit">Добавить</button>
     </form>
 
     <br>
-    <a href="{% url 'recipe_list' %}">Назад</a>
+    <a href="{% url 'recipe_list' %}">Назад к списку рецептов</a>
 </body>
 </html>
