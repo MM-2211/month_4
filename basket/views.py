@@ -26,21 +26,6 @@ class CreateBasket(generic.CreateView):
         print(form.cleaned_data)
         return super(CreateBasket, self).form_valid(form=form)
 
-# def create_basket(request):
-#     if request.method == 'POST':
-#         form = forms.BasketForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('basket_list')
-#             # return HttpResponse('Книга добавлена в корзину')
-#     else:
-#         form = forms.BasketForm()
-#     return render(
-#         request,
-#         template_name='basket/create_basket.html',
-#         context={'form': form}
-#     )
-
 
 
 class BasketListView(generic.ListView):
@@ -51,15 +36,6 @@ class BasketListView(generic.ListView):
     def get_queryset(self):
         return self.model.objects.all().order_by('-id')
 
-# def basket_list(request):
-#     if request.method == "GET":
-#         query = models.Basket.objects.all().order_by('-id')
-#         return render(
-#             request,
-#             template_name="basket/basket_list.html",
-#             context={"basket": query},
-#         )
-
 class BasketDetailView(generic.DetailView):
     template_name = 'basket/basket_detail.html'
     context_object_name = 'basket_id'
@@ -68,14 +44,6 @@ class BasketDetailView(generic.DetailView):
         basket_id = self.kwargs.get('id')
         return get_object_or_404(models.Basket, id=basket_id)
 
-# def basket_detail(request, id):
-#     if request.method == "GET":
-#         basket_id = get_object_or_404(models.Basket, id=id)
-#         return render(
-#             request,
-#             template_name="basket/basket_detail.html",
-#             context={"basket_id": basket_id},
-#         )
 
 class BasketUpdateView(generic.UpdateView):
     template_name = 'basket/basket_update.html'
@@ -90,21 +58,6 @@ class BasketUpdateView(generic.UpdateView):
         print(form.cleaned_data)
         return super(BasketUpdateView, self).form_valid(form=form)
 
-# def basket_update(request, id):
-#     basket_id = get_object_or_404(models.Basket, id=id)
-#     if request.method == "POST":
-#         form = forms.BasketForm(request.POST, instance=basket_id)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('basket_list')
-#     else:
-#         form = forms.BasketForm(instance=basket_id)
-#
-#     return render(
-#         request,
-#         template_name="basket/basket_update.html",
-#         context={"form": form, "basket_id": basket_id},
-#     )
 
 
 class BasketDeleteView(generic.DeleteView):
@@ -116,10 +69,3 @@ class BasketDeleteView(generic.DeleteView):
         return get_object_or_404(models.Basket, id=basket_id)
 
 
-
-
-
-# def basket_delete(request, id):
-#     basket_id = get_object_or_404(models.Basket, id=id)
-#     basket_id.delete()
-#     return redirect('basket_list')

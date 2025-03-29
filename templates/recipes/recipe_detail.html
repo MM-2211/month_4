@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ i.title }}</title>
+</head>
+<body>
+    <h1>{{ i.title }}</h1>
+    <p>{{ i.description }}</p>
+
+    <h2>Ингредиенты</h2>
+    <ul>
+        {% for ing in recipe.ingredient_set.all %}
+            <li>{{ ing.name }} - {{ ing.quantity }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Добавить ингредиент</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Добавить ингредиент</button>
+    </form>
+
+    <br>
+    <a href="{% url 'recipe_list' %}">Назад</a>
+</body>
+</html>

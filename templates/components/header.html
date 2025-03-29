@@ -37,6 +37,9 @@
                 <li class="nav-item">
                     <a class="nav-link enable" href="{% url 'rezka_list' %}" style="color: yellow;">Фильмы с Rezka.ag</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link enable" href="{% url 'recipe_list' %}" style="color: yellow;">Рецепты</a>
+                </li>
             </ul>
             <form action="{% url 'search' %}" method="GET" class="d-flex" role="search">
                 <input class="form-control me-2" type="text" type="search" name="q" placeholder="Поиск" aria-label="Поиск">

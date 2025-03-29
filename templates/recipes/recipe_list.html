@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список рецептов</title>
+</head>
+<body>
+<h1>Список рецептов</h1>
+    <ul>
+        {% for i in recipes %}
+            <li>
+                <h2>{{ i.title }}</h2>
+                <p>{{ i.description }}</p>
+                <a href="{% url 'recipe_detail' recipe.id %}">Просмотреть</a>
+                <a href="{% url 'delete_recipe' recipe.id %}">Удалить</a>
+            </li>
+        {% endfor %}
+    </ul>
+<a href="{% url 'create_recipe' %}">Добавить новый рецепт</a>
+
+</body>
+</html>
