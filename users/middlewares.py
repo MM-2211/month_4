@@ -22,7 +22,7 @@ class DiplomaMiddleware(MiddlewareMixin):
             elif diploma == "PhD (Кандидат наук)":
                 request.lvl = fourth_lvl
                 request.salary = 4000
-            elif diploma == "None":
+            elif diploma == "None (Нету)":
                 return HttpResponseBadRequest("Извините, вы не приняты, нужно наличие диплома")
 
         elif request.path == "/register/" and request.method == "GET":

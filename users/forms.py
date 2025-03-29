@@ -5,7 +5,7 @@ from . import models
 
 
 DIPLOMA = (
-    ("None", "None"),
+    ("None (Нету)", "None (Нету)"),
     ("Bachelor (Бакалавр)", "Bachelor (Бакалавр)"),
     ("Master (Магистратура)", "Master (Магистратура)"),
     ("Postgraduate (Аспирантура)", "Postgraduate (Аспирантура)"),

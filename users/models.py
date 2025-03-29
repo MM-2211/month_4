@@ -8,7 +8,7 @@ fourth_lvl = "Генеральный директор"
 
 class CustomUser(User):
     DIPLOMA = (
-        ("None", "None"),
+        ("None (Нету)", "None (Нету)"),
         ("Bachelor (Бакалавр)", "Bachelor (Бакалавр)"),
         ("Master (Магистратура)", "Master (Магистратура)"),
         ("Postgraduate (Аспирантура)", "Postgraduate (Аспирантура)"),
@@ -40,7 +40,7 @@ class CustomUser(User):
         elif self.diploma == "PhD (Кандидат наук)":
             self.lvl = fourth_lvl
             self.salary = 4000
-        elif self.diploma == "None":
+        elif self.diploma == "None (Нету)":
             self.lvl = "Извините, вы не приняты, нужно наличие диплома"
             self.salary = 0
         super().save(*args, **kwargs)
